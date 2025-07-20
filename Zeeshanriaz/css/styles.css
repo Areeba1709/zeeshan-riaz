@@ -434,6 +434,26 @@ fieldset {
     padding : 0.35em 0.75em 0.625em;
 }
 
+.text-h1 {
+    font-size: 3rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .text-h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-h1 {
+        font-size: 1.2rem;
+    }
+}
+
+
 legend {
     box-sizing  : border-box;
     color       : inherit;
@@ -2690,6 +2710,19 @@ img.u-pull-left {
     font-size   : var(--text-huge);
     line-height : 1.5;
     margin-top  : 0;
+}
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .text-huge-title {
+        --text-huge: 2.5rem; /* smaller size for tablets */
+    }
+}
+
+/* Media query for phones */
+@media (max-width: 480px) {
+    .text-huge-title {
+        --text-huge: 1.8rem; /* even smaller for phones */
+    }
 }
 
 /* ------------------------------------------------------------------- 
