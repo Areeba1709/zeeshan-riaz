@@ -3472,11 +3472,15 @@ img.u-pull-left {
     list-style  : none;
     margin-top  : var(--vspace-1);
     margin-left : 0;
+    font-size   : 2.5rem;
 }
 
 .about-expertise .skills-list li {
-    display      : inline-block;
+    display      : inline;         /* was inline-block */
     padding-left : 0;
+    margin-right : 6px;            /* optional spacing between items */
+    white-space  : nowrap;         /* optional: prevent breaking single item */
+    font-size    : 0.95em; 
 }
 
 .about-expertise .skills-list li:not(:last-child)::after {
@@ -3809,7 +3813,7 @@ img.u-pull-left {
 }
 
 .modal-popup img {
-    margin-bottom : var(--vspace-0_75);
+    margin-bottom : var(--vspace-0_25);
 }
 
 .modal-popup h5 {
@@ -3825,8 +3829,13 @@ img.u-pull-left {
 .modal-popup__desc {
     padding : 0 var(--vspace-1_25) var(--vspace-0_25);
 }
+.modal-popup__desc p {
+    margin-bottom: 0.7rem; 
+}
 
 .modal-popup__cat {
+    margin-top: 0; 
+    padding-top: 0;
     list-style   : none;
     margin-left  : 0;
     font-size    : var(--text-sm);
@@ -3906,6 +3915,79 @@ img.u-pull-left {
     background : var(--color-1);
     opacity    : 1;
 }
+/*swiper button*/
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: white !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+.swiper-button-prev svg,
+.swiper-button-next svg {
+    width: 24px;
+    height: 24px;
+    stroke: white !important; /* Force black color */
+    stroke-width: 2;
+    fill: none;
+}
+ 
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+/* Wrapper padding to prevent overlap */
+.testimonial-slider {
+    position: relative;
+    padding: 0 60px; /* Ensure there's space on left/right */
+    overflow: hidden;
+}
+
+
+.reviews .swiper-container {
+    position: relative;
+    padding: 0 40px; /* Leave space for arrows */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-slider {
+        padding: 0 30px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        top: 45%; /* better for short height */
+    }
+
+    .swiper-button-prev svg,
+    .swiper-button-next svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        padding: 4px;
+    }
+
+    .swiper-button-prev svg,
+    .swiper-button-next svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
 
 /* ------------------------------------------------------------------- 
  * ## testimonial slider 
@@ -4132,6 +4214,24 @@ img.u-pull-left {
     margin-left  : auto;
     margin-right : 5vw;
 }
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    color: var(--color-text-light);
+    transition:color 0.3s;
+}
+
+.contact-social a:hover .contact-icon,
+.contact-social a:focus .contact-icon {
+    color: var(--color-1);
+}
+
+.contact-social svg {
+  width: 32px;  /* or 40px, 48px etc. */
+  height: 32px;
+}
+
 
 /* ------------------------------------------------------------------- 
  * responsive:

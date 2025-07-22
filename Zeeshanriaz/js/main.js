@@ -212,71 +212,72 @@
 
    /* Swiper
     * ------------------------------------------------------ */ 
-    const ssSwiper = function() {
-
-        const mySwiper = new Swiper('.swiper-container', {
-
-            slidesPerView: 1,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
+    const ssSwiper = function () {
+    const mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            401: {
+                slidesPerView: 1,
+                spaceBetween: 20
             },
-            breakpoints: {
-                // when window width is > 400px
-                401: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                // when window width is > 800px
-                801: {
-                    slidesPerView: 2,
-                    spaceBetween: 32
-                },
-                // when window width is > 1200px
-                1201: {
-                    slidesPerView: 2,
-                    spaceBetween: 80
-                }
+            801: {
+                slidesPerView: 2,
+                spaceBetween: 32
+            },
+            1201: {
+                slidesPerView: 2,
+                spaceBetween: 80
             }
-         });
-
-    }; // end ssSwiper
+        }
+    });
+};
+ // end ssSwiper
 
 
    /* Lightbox
     * ------------------------------------------------------ */
-    const ssLightbox = function() {
+    const ssLightbox = function () {
+    const folioLinks = document.querySelectorAll('.folio-list__item-link');
+    const modals = [];
 
-        const folioLinks = document.querySelectorAll('.folio-list__item-link');
-        const modals = [];
-
-        folioLinks.forEach(function(link) {
-            let modalbox = link.getAttribute('href');
-            let instance = basicLightbox.create(
-                document.querySelector(modalbox),
-                {
-                    onShow: function(instance) {
-                        //detect Escape key press
-                        document.addEventListener("keydown", function(event) {
-                            event = event || window.event;
-                            if (event.keyCode === 27) {
-                                instance.close();
-                            }
-                        });
-                    }
+    folioLinks.forEach(function (link) {
+        let modalbox = link.getAttribute('href');
+        let instance = basicLightbox.create(
+            document.querySelector(modalbox),
+            {
+                onShow: function (instance) {
+                    document.body.style.overflow = 'hidden'; // disable scroll
+                    document.addEventListener("keydown", function (event) {
+                        event = event || window.event;
+                        if (event.keyCode === 27) {
+                            instance.close();
+                        }
+                    });
+                },
+                onClose: function (instance) {
+                    document.body.style.overflow = ''; // restore scroll
                 }
-            )
-            modals.push(instance);
-        });
+            }
+        );
+        modals.push(instance);
+    });
 
-        folioLinks.forEach(function(link, index) {
-            link.addEventListener("click", function(event) {
-                event.preventDefault();
-                modals[index].show();
-            });
+    folioLinks.forEach(function (link, index) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            modals[index].show();
         });
-
-    };  // end ssLightbox
+    });
+};
+//end of light box
 
 
    /* Alert boxes
