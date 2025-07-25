@@ -4211,22 +4211,55 @@ img.u-pull-left {
     color : var(--color-text-light);
 }
 
-.contact-links a:focus,
-.contact-links a:hover,
-.contact-social a:focus,
-.contact-social a:hover {
-    color : var(--color-1);
+
+
+.contact-social a:hover .contact-icon,
+.contact-social a:focus .contact-icon {
+    color: var(--color-1); /* or your desired color */
+    fill: var(--color-1);
 }
+
+
+
 
 .contact-social {
     list-style  : none;
     margin-left : 0;
+}
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    color: var(--color-text-light);
+    transition:color 0.3s;
 }
 
 .contact-social li {
     display      : inline-block;
     padding-left : 0;
     margin-right: 12px;
+}
+
+
+.contact-social li a .contact-icon {
+    color: var(--color-text-light); /* default icon color */
+    transition: color 0.3s ease;
+}
+/* Hover Colors */
+.contact-social .github a:hover .contact-icon {
+    color: #333; /* GitHub Dark */
+}
+
+.contact-social .linkedin a:hover .contact-icon {
+    color: #0A66C2; /* LinkedIn Blue */
+}
+
+.contact-social .upwork a:hover .contact-icon {
+    color: #6fda44; /* Upwork Green */
+}
+
+.contact-social .fiverr a:hover .contact-icon {
+    color: #1dbf73; /* Fiverr Green */
 }
 
 .contact-social li::after {
@@ -4241,18 +4274,8 @@ img.u-pull-left {
     margin-left  : auto;
     margin-right : 5vw;
 }
-.contact-icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    color: var(--color-text-light);
-    transition:color 0.3s;
-}
 
-.contact-social a:hover .contact-icon,
-.contact-social a:focus .contact-icon {
-    color: var(--color-1);
-}
+
 
 .contact-social svg {
   width: 32px;  /* or 40px, 48px etc. */
