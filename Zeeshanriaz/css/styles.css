@@ -2704,6 +2704,15 @@ img.u-pull-left {
     top              : 50%;
     left             : 0;
 }
+.recent-works-heading {
+    font-family : var(--font-1);
+    font-weight : 300;
+    font-size: calc(var(--text-md) * 1.2);
+    line-height : var(--vspace-1_25);
+    color       : var(--color-text-dark);
+    margin-bottom: 2rem; /* Optional spacing below */
+}
+
 
 .text-huge-title {
     --text-huge : 4.5rem;
@@ -3654,7 +3663,7 @@ img.u-pull-left {
 .folio-list {
     --item-min-height : var(--vspace-4_5);
     list-style        : none;
-    margin-top        : var(--vspace-4);
+    margin-top        : var(--vspace-2);
     margin-bottom     : var(--vspace-1);
     margin-left       : 0;
 }
@@ -4217,10 +4226,11 @@ img.u-pull-left {
 .contact-social li {
     display      : inline-block;
     padding-left : 0;
+    margin-right: 12px;
 }
 
 .contact-social li::after {
-    content : ",  ";
+    content : "  ";
 }
 
 .contact-social li:last-child::after {
